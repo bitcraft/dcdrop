@@ -24,10 +24,8 @@ Modem Connection
 ----------------
 
 The Dreamcast can be connected to the host computer by connecting them together
-using modems.
-
-Please check the very useful guide linked below to connect your Dreamcast to
-your host pc.
+using modems.  Please check the very useful guide linked below to connect your
+Dreamcast to your host pc.
 
 http://www.dreamcast-scene.com/guides/pc-dc-server-guide-win7/
 
