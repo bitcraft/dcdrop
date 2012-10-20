@@ -14,7 +14,8 @@ Features
 Usage
 -----
 
-* Dreamcast must be connected to Internet with broadband adapter or modem.
+Dreamcast must be connected to host computer with broadband adapter or modem
+
 * Launch droppy.py script
 * Using Dreamcast browser disc, navigate to IP address of hosting computer
 * Upload the VMU save
