@@ -40,6 +40,14 @@ I have a ton of great Street Fighter III 3rd Strike replays that I want to keep
 for posterity.
 
 
+Acknowledgments
+---------------
+
+This script would not be possible without the efforts in 'droopy.py' by Pierre
+Duquesne <stackp@online.fr>.  Thank you, and everyone in the Dreamcast
+community that has published information on the VMU format.
+
+
 Python Support
 --------------
 
