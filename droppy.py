@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 
 # DCDrop
 # Copyright 2011 (c) Leif Theden <leif.theden@gmail.com>
@@ -25,10 +25,10 @@ import tempfile
 import socket
 import locale
 
-from upload import upload_file
+# from upload import upload_file
 
 LOGO = '''\
- _____                               
+ _____
 |     \.----.-----.-----.-----.--.--.
 |  --  |   _|  _  |  _  |  _  |  |  |
 |_____/|__| |_____|  ___|   __|___  |
@@ -45,10 +45,10 @@ Options:
   -d DIRECTORY, --directory DIRECTORY   set the directory to upload files to
   --save-config                         save options in a configuration file
   --delete-config                       delete the configuration file and exit
-  
+
 Example:
    droppy -m "Hi, this is Bob. You can send me a file." -p avatar.png
-''' 
+'''
 
 picture = None
 message = ""
@@ -97,7 +97,7 @@ function update() {
 }
 function onunload() {
    document.getElementById("form").style.display = "block";
-   document.getElementById("sending").style.display = "none";	  
+   document.getElementById("sending").style.display = "none";
 }
 </script></head>
 <body>
@@ -151,7 +151,7 @@ errortmpl = '''
 ''' + userinfo + '''
 </body>
 </html>
-''' 
+'''
 
 linkurltmpl = '''<div class="box">
 <a href="http://stackp.online.fr/droopy-ip.php?port=%(port)d"> %(discover)s
@@ -490,7 +490,7 @@ class HTTPUploadHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         page can be "main", "success", or "error"
         returns an html page (in the appropriate language) as a string
         """
-        
+
         # -- Parse accept-language header
         if not self.headers.has_key("accept-language"):
             a = []
@@ -504,7 +504,7 @@ class HTTPUploadHandler(BaseHTTPServer.BaseHTTPRequestHandler):
             a.reverse()
             a = [x[1] for x in a]
         # now a is an ordered list of preferred languages
-            
+
         # -- Choose the appropriate translation dictionary (default is english)
         lang = "en"
         for l in a:
@@ -533,8 +533,8 @@ class HTTPUploadHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     def do_GET(self):
         if picture != None and self.path == '/' + os.path.basename(picture):
             # send the picture
-            self.send_response(200)                      
-            self.send_header('Content-type', mimetypes.guess_type(picture)[0]) 
+            self.send_response(200)
+            self.send_header('Content-type', mimetypes.guess_type(picture)[0])
             self.end_headers()
             self.wfile.write(open(picture, 'rb').read())
         else:
@@ -545,7 +545,7 @@ class HTTPUploadHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         # Do some browsers /really/ use multipart ? maybe Opera ?
         try:
             self.log_message("Started file transfer")
-            
+
             # -- Set up environment for cgi.FieldStorage
             env = {}
             env['REQUEST_METHOD'] = self.command
@@ -569,12 +569,12 @@ class HTTPUploadHandler(BaseHTTPServer.BaseHTTPRequestHandler):
                 self.send_header('Location', '/')
                 self.end_headers()
                 return
-            
+
             localpath = os.path.join(directory, filename).encode('utf-8')
             root, ext = os.path.splitext(localpath)
             i = 1
             # race condition, but hey...
-            while (os.path.exists(localpath)): 
+            while (os.path.exists(localpath)):
                 localpath = "%s-%d%s" % (root, i, ext)
                 i = i+1
             if hasattr(fileitem, 'tmpfile'):
@@ -670,7 +670,7 @@ def save_options():
     f.write('\n'.join(opt).encode('utf8'))
     f.close()
 
-    
+
 def load_options():
     try:
         f = open(configfile())
@@ -695,7 +695,7 @@ def parse_args(cmd=None):
         lang, encoding = locale.getdefaultlocale()
         if encoding != None:
             cmd = [a.decode(encoding) for a in cmd]
-            
+
     opts, args = None, None
     try:
         opts, args = getopt.gnu_getopt(cmd, "p:m:d:h",
@@ -712,10 +712,10 @@ def parse_args(cmd=None):
 
         elif o in ["-m", "--message"] :
             message = a
-                
+
         elif o in ['-d', '--directory']:
             directory = a
-            
+
         elif o in ['--save-config']:
             must_save_options = True
 
@@ -741,7 +741,7 @@ def parse_args(cmd=None):
         sys.exit(1)
 
 
-# -- 
+# --
 
 def run():
     """Run the webserver."""
@@ -761,7 +761,7 @@ if __name__ == '__main__':
         print 'Configuration found in %s' % configfile()
     else:
         print "No configuration file found."
-        
+
     if must_save_options:
         save_options()
         print "Options saved in %s" % configfile()

@@ -1,13 +1,18 @@
-DC Drop VMU transfer utility
+DCDROP VMU transfer utility
 ============================
 
-Simple HTTP server that facilitates transfer of VMU saves from a Dreamcast
+Simple HTTP server that facilitates transfer of VMU saves from a Dreamcast.
+
+DCDROP enables you to transfer your VMU saves from a Dreamcast to a host
+computer using the PlanetWeb browser.  It requires that the Dreamcast is
+already connected to the host computer using a modem or broadband adapter.
 
 
 Features
 --------
 
 * Transfers VMU saves from Dreamcast to computer
+* Use the PlanetWeb browser to transfer saves
 * Decodes VMU save into a format suitable for emulators
 
 
@@ -27,6 +32,9 @@ Modem Connection
 The Dreamcast can be connected to the host computer by connecting them together
 using modems.  Please check the very useful guide linked below to connect your
 Dreamcast to your host pc.
+
+You will need to follow this guide first.  DCDROP will not be able to communicate
+with the host computer alone.
 
 http://www.dreamcast-scene.com/guides/pc-dc-server-guide-win7/
 
@@ -53,5 +61,5 @@ This package was developed and tested with:
 Debian Linux (Lenny), python 2.5
 
 
-leif theden (bitcraft), 2012
+leif theden (bitcraft), 2009-2016
 
